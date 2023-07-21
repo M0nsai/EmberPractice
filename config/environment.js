@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (environment) {
+module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'ejemplo1',
     environment,
@@ -18,6 +18,9 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    'ember-cli-mirage': {
+      enabled: true, // set to true to use Mirage instead of Server API
+    },
   };
 
   if (environment === 'development') {
@@ -26,6 +29,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'].enabled = true;
   }
 
   if (environment === 'test') {
@@ -38,10 +42,12 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
+    ENV['ember-cli-mirage'].enabled = true;
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['ember-cli-mirage'].enabled = true;
   }
 
   return ENV;
