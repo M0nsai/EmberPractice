@@ -6,5 +6,6 @@ export default function(server) {
   */
 
   // server.createList('post', 10);
-  server.createList('course', 3);
+  server.createList('course', 10);
+  server.createList('student', 10);
 }
