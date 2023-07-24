@@ -25,4 +25,5 @@ export default function() {
   */
   this.namespace = '/api/mirage';
   this.get('/courses');
+  this.get('/students');
 }
