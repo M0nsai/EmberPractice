@@ -6,7 +6,9 @@ export default class StudentsRoute extends Route {
     store;
 
   model() {
-    return this.store.findAll('student');
+    return this.store.findAll('student', {
+      include: 'course'
+    });
   }
 
 

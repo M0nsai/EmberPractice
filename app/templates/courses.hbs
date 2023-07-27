@@ -9,14 +9,25 @@
       <th>ID</th>
       <th>Code</th>
       <th>Name</th>
+      <th>Students</th>
     </tr>
     </thead>
     <tbody>
     {{#each this.allCourses as |course|}}
+
       <tr>
         <td>{{course.id}}</td>
         <td>{{course.code}}</td>
         <td>{{course.name}}</td>
+        <td>
+        {{#if course.students}}
+          {{#each course.students as |students|}}
+            {{students.name}}
+          {{/each}}
+        {{else}}
+          No hay estudiantes
+        {{/if}}
+        </td>
       </tr>
     {{/each}}
     </tbody>
