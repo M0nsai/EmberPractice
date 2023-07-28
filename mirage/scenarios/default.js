@@ -6,6 +6,16 @@ export default function(server) {
   */
 
   // server.createList('post', 10);
-  server.createList('course', 10);
-  server.createList('student', 10);
+
+
+
+  let courses = server.createList('course', 10);
+  let students = server.createList('student', 10);
+
+  students.forEach((student) => {
+    student.update({
+      course:  courses[Math.floor(Math.random() * students.length)]
+    });
+  });
+
 }
