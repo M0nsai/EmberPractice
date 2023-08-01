@@ -1,0 +1,25 @@
+<button class="btn btn-link {{unless @students.length "link-secondary"}}" type="button" {{on "click" (set this "isOpen" true)}} >View</button>
+{{#if this.isOpen}}
+  <BsModal  as |Modal|>
+    <Modal.header>
+      <h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Alert</h4>
+    </Modal.header>
+    <Modal.body>
+      {{#if @students.length}}
+      <ul>
+        {{#each @students as |student|}}
+          <li>
+            {{student.name}} {{student.lastName}}
+          </li>
+        {{/each}}
+      </ul>
+      {{else}}
+        No students enrolled
+      {{/if}}
+    </Modal.body>
+    <Modal.footer as |footer|>
+      <BsButton @type="secondary" {{on "click" (set this "isOpen" false)}}>Close</BsButton>
+    </Modal.footer>
+  </BsModal>
+{{/if}}
+
